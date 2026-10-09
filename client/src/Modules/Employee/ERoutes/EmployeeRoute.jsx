@@ -4,7 +4,8 @@ import Register from '../EComponent/Register'
 import Login from '../EComponent/Login'
 import EmployeeDashboard from '../EComponent/EmployeeDashboard'
 import LeaveHistory from '../EComponent/LeaveHistory'
-import ApplyLeave from '../EComponent/Applyleave'
+import ApplyLeave from '../EComponent/ApplyLeave'
+
 
 export default function EmployeeRoute() {
   return (
