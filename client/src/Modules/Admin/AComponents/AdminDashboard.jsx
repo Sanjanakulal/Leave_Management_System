@@ -21,6 +21,8 @@ import PendingActionsRoundedIcon from "@mui/icons-material/PendingActionsRounded
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import EventNoteRoundedIcon from "@mui/icons-material/EventNoteRounded";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 export default function AdminDashboard() {
     const [stats, setStats] = useState({
         totalEmployees: 0,
@@ -37,10 +39,16 @@ export default function AdminDashboard() {
                 const token = localStorage.getItem("UserToken");
 
                 const [employeesResponse, leavesResponse] = await Promise.all([
-                    axios.get("http://localhost:5000/employee/all", {
+                    // axios.get("http://localhost:5000/employee/all", {
+                    //     headers: { "auth-token": token }
+                    // }),
+                    axios.get(`${API_URL}/employee/all`, {
                         headers: { "auth-token": token }
                     }),
-                    axios.get("http://localhost:5000/leave/all", {
+                    // axios.get("http://localhost:5000/leave/all", {
+                    //     headers: { "auth-token": token }
+                    // })
+                    axios.get(`${API_URL}/leave/all`, {
                         headers: { "auth-token": token }
                     })
                 ]);
@@ -253,14 +261,14 @@ export default function AdminDashboard() {
                                                         leave.status === "Approved"
                                                             ? "#064e3b"
                                                             : leave.status === "Rejected"
-                                                            ? "#7f1d1d"
-                                                            : "#78350f",
+                                                                ? "#7f1d1d"
+                                                                : "#78350f",
                                                     color:
                                                         leave.status === "Approved"
                                                             ? "#6ee7b7"
                                                             : leave.status === "Rejected"
-                                                            ? "#fca5a5"
-                                                            : "#fcd34d"
+                                                                ? "#fca5a5"
+                                                                : "#fcd34d"
                                                 }}
                                             />
                                         </TableCell>

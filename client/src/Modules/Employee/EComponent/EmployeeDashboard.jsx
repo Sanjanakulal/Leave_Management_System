@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 import {
     Clock,
     CheckCircle,
@@ -54,7 +56,8 @@ export default function EmployeeDashboard() {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/leave/my-leaves",
+                // "http://localhost:5000/leave/my-leaves",
+                `${API_URL}/leave/my-leaves`,
                 {
                     headers: { "auth-token": token }
                 }
@@ -65,7 +68,8 @@ export default function EmployeeDashboard() {
             // Refresh the balance directly from the employee record.
             // This endpoint must be added to the backend as described below.
             const balanceResponse = await axios.get(
-                "http://localhost:5000/employee/me",
+                // "http://localhost:5000/employee/me",
+                `${API_URL}/employee/me`,
                 {
                     headers: { "auth-token": token }
                 }

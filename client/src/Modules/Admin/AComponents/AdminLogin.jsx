@@ -11,6 +11,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -30,11 +32,15 @@ export default function AdminLogin() {
 
     const handleLogin = async () => {
         try {
+            // const res = await axios.post(
+            //     'http://localhost:5000/admin/loginbyadmin',
+            //     adminlogin
+            // );
+
             const res = await axios.post(
-                'http://localhost:5000/admin/loginbyadmin',
+                `${API_URL}/admin/loginbyadmin`,
                 adminlogin
             );
-
             if (res.data.success) {
                 localStorage.setItem('UserToken', res.data.token);
                 alert('Login successful');

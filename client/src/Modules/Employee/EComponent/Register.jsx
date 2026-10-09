@@ -7,6 +7,8 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Register() {
     const navigate = useNavigate();
 
@@ -55,8 +57,12 @@ export default function Register() {
 
             const { confirmPassword, ...employeeData } = formdata;
 
+            // const res = await axios.post(
+            //     'http://localhost:5000/employee/register',
+            //     employeeData
+            // );
             const res = await axios.post(
-                'http://localhost:5000/employee/register',
+                `${API_URL}/employee/register`,
                 employeeData
             );
 

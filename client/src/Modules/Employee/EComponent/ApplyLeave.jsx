@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 export default function ApplyLeave() {
   const navigate = useNavigate();
 
@@ -34,7 +36,8 @@ export default function ApplyLeave() {
       const token = localStorage.getItem("EmployeeToken");
 
       const response = await axios.post(
-        "http://localhost:5000/leave/apply",
+        // "http://localhost:5000/leave/apply",
+        `${API_URL}/leave/apply`,
         form,
         {
           headers: {

@@ -18,6 +18,8 @@ import {
     Stack
 } from "@mui/material";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 export default function LeaveRequests() {
     const [leaves, setLeaves] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -32,7 +34,8 @@ export default function LeaveRequests() {
             const token = localStorage.getItem("UserToken");
 
             const response = await axios.get(
-                "http://localhost:5000/leave/all",
+                // "http://localhost:5000/leave/all",
+                `${API_URL}/leave/all`,
                 {
                     headers: { "auth-token": token }
                 }
@@ -63,7 +66,8 @@ export default function LeaveRequests() {
             const token = localStorage.getItem("UserToken");
 
             const response = await axios.patch(
-                `http://localhost:5000/leave/${leaveId}/status`,
+                // `http://localhost:5000/leave/${leaveId}/status`,
+                `${API_URL}/leave/${leaveId}/status`,
                 { status },
                 {
                     headers: { "auth-token": token }

@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Login() {
     const navigate = useNavigate();
 
@@ -35,8 +37,12 @@ export default function Login() {
         try {
             setLoading(true);
 
+            // const res = await axios.post(
+            //     'http://localhost:5000/employee/login',
+            //     formdata
+            // );
             const res = await axios.post(
-                'http://localhost:5000/employee/login',
+                `${API_URL}/employee/login`,
                 formdata
             );
 
@@ -48,7 +54,7 @@ export default function Login() {
 
             alert('Login successful');
 
-            
+
             navigate('/EmployeeDashboard');
         } catch (error) {
             console.error('Login error:', error);
