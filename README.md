@@ -66,19 +66,7 @@ Make sure MongoDB is running and the required environment variables are configur
 | GET | `/leave/all` | View all leave requests |
 | PATCH | `/leave/:id/status` | Update leave status |
 
-## Deployment
-
-The project will be hosted using the following services:
-
-- Frontend: Vercel
-- Backend: Render
-- Database: MongoDB Atlas
-- Source code: GitHub
-
-The deployment links will be added after hosting the application.
-
 ## Project Links
 
-- GitHub Repository: git clone https://github.com/Sanjanakulal/Leave_Management_System.git
-- Live Application: To be added
-- Backend API: To be added
+- **GitHub Repository:** https://github.com/Sanjanakulal/Leave_Management_System
+- **Live Application (Vercel):** https://leave-management-system-uyq1.vercel.app/
