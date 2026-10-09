@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
-const CONNECTION_URL = 'mongodb://localhost:27017/leave';
+// const CONNECTION_URL = 'mongodb://localhost:27017/leave';
+const CONNECTION_URL = process.env.MONGO_URI || 'mongodb://localhost:27017/leave';
 
 const dbconnection = async () => {
 try {
