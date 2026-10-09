@@ -8,7 +8,8 @@ const leaveroute = require("./Routes/leave_routes");
 
 const app = express();
 
-const PORTNUMBER = 5000;
+// const PORTNUMBER = 5000;
+const PORTNUMBER = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
