@@ -3,8 +3,8 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import Register from '../EComponent/Register'
 import Login from '../EComponent/Login'
 import EmployeeDashboard from '../EComponent/EmployeeDashboard'
-import ApplyLeave from '../EComponent/Applyleave'
 import LeaveHistory from '../EComponent/LeaveHistory'
+import ApplyLeave from '../EComponent/Applyleave'
 
 export default function EmployeeRoute() {
   return (
