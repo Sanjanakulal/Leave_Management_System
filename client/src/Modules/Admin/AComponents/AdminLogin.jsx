@@ -11,7 +11,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
@@ -30,31 +31,60 @@ export default function AdminLogin() {
         });
     };
 
-    const handleLogin = async () => {
-        try {
-            // const res = await axios.post(
-            //     'http://localhost:5000/admin/loginbyadmin',
-            //     adminlogin
-            // );
+    // const handleLogin = async () => {
+    //     try {
+    //         // const res = await axios.post(
+    //         //     'http://localhost:5000/admin/loginbyadmin',
+    //         //     adminlogin
+    //         // );
 
-            const res = await axios.post(
-                `${API_URL}/admin/loginbyadmin`,
-                adminlogin
-            );
-            if (res.data.success) {
-                localStorage.setItem('UserToken', res.data.token);
-                alert('Login successful');
-                navigate('/Admin');
-            } else {
-                alert('Login failed');
-            }
-        } catch (error) {
-            console.log(error);
-            alert(
-                error.response?.data?.message || 'Login failed'
-            );
+    //         const res = await axios.post(
+    //             `${API_URL}/admin/loginbyadmin`,
+    //             adminlogin
+    //         );
+    //         if (res.data.success) {
+    //             localStorage.setItem('UserToken', res.data.token);
+    //             alert('Login successful');
+    //             navigate('/Admin');
+    //         } else {
+    //             alert('Login failed');
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //         alert(
+    //             error.response?.data?.message || 'Login failed'
+    //         );
+    //     }
+    // };
+
+    const handleLogin = async () => {
+
+    if (!API_URL) {
+        alert('Backend API URL is missing');
+        return;
+    }
+
+    try {
+        const res = await axios.post(
+            `${API_URL}/admin/loginbyadmin`,
+            adminlogin
+        );
+
+        if (res.data.success) {
+            localStorage.setItem('UserToken', res.data.token);
+            alert('Login successful');
+            navigate('/Admin');
+        } else {
+            alert('Login failed');
         }
-    };
+
+    } catch (error) {
+        console.log(error);
+        alert(
+            error.response?.data?.message || 'Login failed'
+        );
+    }
+};
 
     return (
         <Box
