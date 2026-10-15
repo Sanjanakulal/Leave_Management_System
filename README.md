@@ -69,4 +69,4 @@ Make sure MongoDB is running and the required environment variables are configur
 ## Project Links
 
 - **GitHub Repository:** https://github.com/Sanjanakulal/Leave_Management_System
-- **Live Application (Vercel):** https://leave-management-system-uyq1.vercel.app/
+- **Live Application (Vercel):** https://leave-management-system-ten-inky.vercel.app/
